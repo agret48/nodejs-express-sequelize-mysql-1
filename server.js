@@ -9,6 +9,7 @@ var corsOptions = {
 
 const db = require("./models/index");
 const userRouter = require('./routers/user.route');
+const authentificationRouter = require("./routers/authentification.route")
 
 db.sequelize.sync()
   .then(() => {
@@ -38,6 +39,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 app.use(userRouter)
+app.use(authentificationRouter)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
