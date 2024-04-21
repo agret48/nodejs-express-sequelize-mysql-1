@@ -72,7 +72,17 @@ const UserController = {
             console.error("Erreur lors de l'authentification ou de la création de l'utilisateur :", error);
             res.status(500).json({ message: "Erreur lors de l'authentification ou de la création de l'utilisateur." });
         }
-    }
+    },
+    createComments: async (req, res) => {
+        try {
+            const { comments, reference } = req.body
+            const commenUser = await User.create({ reference: reference, comments: comments });
+            res.status(200).json({ commenUser });
+        } catch (error) {
+            console.error("Erreur lors de l'ajout du produit", error);
+            res.status(500).json({ message: "Erreur lors de l'ajout du produit" });
+        }
+    },
 
 };
 
