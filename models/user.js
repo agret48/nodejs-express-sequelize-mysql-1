@@ -12,6 +12,9 @@ module.exports = (sequelize, Sequelize) => {
       },
       reference: {
         type: Sequelize.STRING
+      },
+      link: {
+        type: Sequelize.STRING
       }
     });
   
